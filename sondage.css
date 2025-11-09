@@ -1,0 +1,56 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 30px;
+  background-color: #28252b;
+  color: rgb(9, 217, 224);
+}
+
+button {
+  margin: 5px;
+  padding: 10px;
+  background-color: #1b191d;
+  border-color: rgb(9, 217, 224);
+  border-radius: 20px;
+  color: rgb(9, 217, 224);
+  border-style: outset;
+  transition: 1s;
+  width: 180px;
+}
+button:hover {
+  border-style: inset;
+  transform: translateY(3px);
+  background-color: rgb(9, 217, 224);
+  color: #1b191d;
+  border-color: #100f11;
+}
+
+.output {
+  margin-top: 20px;
+  border: 1px solid;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.group {
+  margin-bottom: 10px;
+}
+
+input {
+  margin: 5px;
+  padding: 10px;
+  background-color: #1b191d;
+  border-color: rgb(9, 217, 224);
+  border-radius: 20px;
+  color: rgb(9, 217, 224);
+  border-style: outset;
+  transition: 1s;
+}
+input:hover {
+  border-style: inset;
+  transform: translateY(3px);
+  background-color: #100f11;
+}
+
+.output {
+  width: 400px;
+}/*# sourceMappingURL=sondage.css.map */

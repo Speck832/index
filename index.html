@@ -1,36 +1,74 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spectral</title>
-    <link rel="stylesheet" href="./index.css">
-    <link rel="icon" href="http://liam.sarinoty.com/html/20250928_114532.png" type="image/x-icon" sizes="16x16">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spectral</title>
+  <link rel="stylesheet" href="./index.css">
+  <link rel="icon" href="http://liam.sarinoty.com/html/20250928_114532.png" type="image/x-icon" sizes="16x16">
 </head>
 <body>
-    <header id="header">
-        <h1 id="titre" align="center">Spectral - Index</h1>
-    </header>
-    <section id="body">
-        <div class="div">
-            <a class="lien" href="../Metallica_bar">
-                <img class="image" src="../Metallica_bar/stickers-logo-metallica.png" alt="Logo">
-                <p align="center">Metallica Bar</p>
-            </a>
-        </div>
-        <div class="div">
-            <a class="lien" href="../hideandseek">
-                <img class="image" src="http://liam.sarinoty.com/html/20250928_114532.png" alt="Logo">
-                <p align="center">Chasse à</p>
-                <p align="center">l'Homme</p>
-            </a>
-        </div>
-        <div class="div">
-            <a class="lien" href="../mamie">
-                <img id="carré" class="image" src="../mamie/istockphoto-1183790559-612x612.jpg" alt="Logo">
-                <p align="center">Mamie</p>
-            </a>
-        </div>
-    </section>
+  <header id="header">
+    <h1 id="titre" align="center">Spectral - Index</h1>
+  </header>
+
+  <section id="body">
+    <div class="div">
+      <a class="lien" href="../Metallica_bar">
+        <img class="image" src="../Metallica_bar/stickers-logo-metallica.png" alt="Logo">
+        <p align="center">Metallica Bar</p>
+      </a>
+    </div>
+    <div class="div">
+      <a class="lien" href="../hideandseek">
+        <img class="image" src="http://liam.sarinoty.com/html/20250928_114532.png" alt="Logo">
+        <p align="center">Chasse à</p>
+        <p align="center">l'Homme</p>
+      </a>
+    </div>
+  </section>
+
+  <section id="center">
+    <input id="pw" type="password" placeholder="Mot de passe">
+    <button class="btn">Aller</button>
+  </section>
+
+  <a href="./id.html">
+    <button id="button"><a>S'identifier</a></button>
+  </a>
+  
+  <a href="http://liam.sarinoty.com/sondage.html" target="_blank">
+    <button id="centre" class="btn"><a>Participer aux sondages</a></button>
+  </a>
+
+  <script>
+    const pwInput = document.getElementById("pw");
+    const btn = document.getElementById("btn");
+    const loader = document.getElementById("loader");
+
+    const PASSWORDS = {
+      mamie: "../mamie/index.html",
+      exercice: "../html/index.html",
+      animations: "../animations/index.html"
+    };
+
+    btn.addEventListener("click", () => {
+      const input = pwInput.value.trim();
+
+      if (input === "mamie" || input === "exercice") {
+        window.location.href = PASSWORDS[input];
+      } 
+      else if (input === "animations") {
+        loader.style.display = "flex"; // affiche le loader
+        setTimeout(() => {
+          loader.style.display = "none"; // cache après 5s
+          window.location.href = PASSWORDS[input];
+        }, 5000);
+      } 
+      else {
+        alert("Mot de passe incorrect !");
+      }
+    });
+  </script>
 </body>
 </html>

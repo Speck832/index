@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./id.css">
+</head>
+<body id="body">
+  <header id="header">
+    <h1 id="titre">Identification</h1>
+  </header>
+    <input id="Identifiant" class="input" type="password" placeholder="Identifiant">
+    <input id="Mot_de_passe" class="input" type="password" placeholder="Mot de passe">
+    <input id="Numero_de_cadenas" class="input" type="password" placeholder="Numéro de cadenas">
+    <input id="Mot_de_passe_2" class="input" type="password" placeholder="Mot de passe 2">
+    <button id="button">Identification</button>
+    <script>
+        const Mot_de_passe = 'Guinness7'
+        const Identifiant = 'Spectral'
+        const Mot_de_passe_2 = '#Guinness(7)'
+        const Numero_de_cadenas = '828'
+        
+        document.getElementById('button').onclick = function(){
+            if (document.getElementById('Identifiant').value === Identifiant) {
+            if (document.getElementById('Mot_de_passe').value === Mot_de_passe) {
+            if (document.getElementById('Numero_de_cadenas').value === Numero_de_cadenas) {
+            if (document.getElementById('Mot_de_passe_2').value === Mot_de_passe_2) {
+        window.location.href = './tout.html';
+      } else {
+        alert('Mot de passe 2 incorrect');
+      }
+      } else {
+        alert('Numéro de cadenas incorrect');
+      }
+      } else {
+        alert('Mot de passe incorrect');
+      }
+      } else {
+        alert('Identifiant incorrect');
+      }
+      }
+    </script>
+</body>
+</html>

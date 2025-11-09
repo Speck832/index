@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Sondages Pokémon</title>
+  <link rel="stylesheet" href="./sondage.css">
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    .group input { display: block; margin: 5px 0; padding: 5px; width: 200px; }
+    button { margin-top: 10px; padding: 5px 10px; }
+    .output { margin-top: 20px; white-space: pre-line; }
+  </style>
+</head>
+<body>
+  <h2>Sondages Pokémon</h2>
+
+  <div class="group">
+    <input type="text" id="prenom" placeholder="Prénom">
+    <p>Mettez votre préféré toutes générations confondues.</p>
+    <input type="text" id="generation" placeholder="Génération">
+    <input type="text" id="mega" placeholder="Méga-évolution">
+    <input type="text" id="starterPlante" placeholder="Starter plante">
+    <input type="text" id="starterEau" placeholder="Starter eau">
+    <input type="text" id="starterFeu" placeholder="Starter feu">
+    <input type="text" id="shiny" placeholder="Shiny">
+    <p>Votre équipe de rêve :</p>
+    <input type="text" id="poke1" placeholder="Pokémon 1">
+    <input type="text" id="poke2" placeholder="Pokémon 2">
+    <input type="text" id="poke3" placeholder="Pokémon 3">
+    <input type="text" id="poke4" placeholder="Pokémon 4">
+    <input type="text" id="poke5" placeholder="Pokémon 5">
+    <input type="text" id="poke6" placeholder="Pokémon 6">
+  </div>
+
+  <button id="saveBtn">Enregistrer</button>
+
+  <h2>Afficher / Réinitialiser les données</h2>
+  <input type="password" id="password" placeholder="Mot de passe">
+  <button id="showBtn">Afficher</button>
+  <button id="resetBtn">Tout réinitialiser</button>
+
+  <div class="output" id="output"></div>
+
+  <script>
+    const fields = [
+      "prenom", "generation", "mega", "starterPlante", "starterEau", "starterFeu", "shiny",
+      "poke1", "poke2", "poke3", "poke4", "poke5", "poke6"
+    ];
+
+    const output = document.getElementById("output");
+
+    // Enregistrer
+    document.getElementById("saveBtn").addEventListener("click", async () => {
+      const data = {};
+      for (const id of fields) data[id] = document.getElementById(id).value.trim();
+      if (!data.prenom) return alert("Merci de saisir un prénom !");
+
+      try {
+        const res = await fetch("api.php", {
+          method: "POST",
+          headers: {"Content-Type": "application/json"},
+          body: JSON.stringify({action: "save", data})
+        });
+        const txt = await res.text();
+        alert(txt);
+        fields.forEach(id => document.getElementById(id).value = "");
+      } catch(e) {
+        alert("Erreur : impossible d'enregistrer les données.");
+      }
+    });
+
+    // Afficher (pas de mot de passe requis)
+    document.getElementById("showBtn").addEventListener("click", async () => {
+      try {
+        const res = await fetch("api.php?action=show");
+        const data = await res.text();
+        output.textContent = data;
+      } catch(e) {
+        output.textContent = "Erreur : impossible de récupérer les données.";
+      }
+    });
+
+    // Réinitialiser (mot de passe requis)
+    document.getElementById("resetBtn").addEventListener("click", async () => {
+      const pass = document.getElementById("password").value;
+      if (!confirm("Voulez-vous vraiment effacer toutes les données ?")) return;
+
+      try {
+        const res = await fetch("api.php", {
+          method: "POST",
+          headers: {"Content-Type": "application/json"},
+          body: JSON.stringify({action: "reset", password: pass})
+        });
+        const txt = await res.text();
+        output.textContent = txt;
+      } catch(e) {
+        output.textContent = "Erreur : impossible de réinitialiser les données.";
+      }
+    });
+  </script>
+</body>
+</html>
+</html>
