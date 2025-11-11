@@ -1,1 +1,46 @@
-[]
+[
+    {
+        "prenom": "Liam",
+        "generation": "6G (Alola)",
+        "mega": "Méga-Dracaufeu Y",
+        "starterPlante": "Brindibou",
+        "starterEau": "Lézargus",
+        "starterFeu": "Flamiaou",
+        "shiny": "Verpom",
+        "poke1": "Lanssorien",
+        "poke2": "Lézargus",
+        "poke3": "Méga-Lugulabre",
+        "poke4": "Méga-Mewtwo X",
+        "poke5": "Méga-Dracolosse",
+        "poke6": "Méga-Dracaufeu Y"
+    },
+    {
+        "prenom": "Esteban",
+        "mega": "Méga lucario",
+        "starterPlante": "Efflèche",
+        "starterEau": "Lezargus",
+        "starterFeu": "Flamiaou",
+        "shiny": "Noctali",
+        "poke1": "Mewtwo",
+        "poke2": "Zygarde",
+        "poke3": "Rayquaza",
+        "poke4": "Solgaleo x necrozma",
+        "poke5": "Yveltal",
+        "poke6": "Noctali"
+    },
+    {
+        "prenom": "Milo",
+        "generation": "1G (Kanto)",
+        "mega": "Méga-Amphinobi",
+        "starterPlante": "Jungko",
+        "starterEau": "Amphinobi",
+        "starterFeu": "Simiabraz",
+        "shiny": "Dracaufeu shiny",
+        "poke1": "Amphinobi",
+        "poke2": "Simiabraz",
+        "poke3": "Dracaufeu",
+        "poke4": "Dracolosse",
+        "poke5": "Lucario",
+        "poke6": "Jungko"
+    }
+]

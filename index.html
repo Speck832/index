@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Spectral</title>
   <link rel="stylesheet" href="./index.css">
-  <link rel="icon" href="http://liam.sarinoty.com/html/20250928_114532.png" type="image/x-icon" sizes="16x16">
+  <link rel="icon" href="./20250928_114532.png" type="image/x-icon" sizes="16x16">
 </head>
 <body>
   <header id="header">
@@ -29,11 +29,11 @@
   </section>
 
   <section id="center">
-    <input id="pw" type="password" placeholder="Mot de passe">
-    <button class="btn">Aller</button>
+    <input id="pw" type="text" placeholder="Mot de passe">
+    <button id="btn" class="btn">Aller</button>
   </section>
 
-  <a href="./id.html">
+  <a href="http://liam.sarinoty.com/id.html">
     <button id="button"><a>S'identifier</a></button>
   </a>
   
@@ -45,25 +45,29 @@
     const pwInput = document.getElementById("pw");
     const btn = document.getElementById("btn");
     const loader = document.getElementById("loader");
-
-    const PASSWORDS = {
-      mamie: "../mamie/index.html",
-      exercice: "../html/index.html",
-      animations: "../animations/index.html"
-    };
+    const mamie = "mamie"
+    const exercice = "exercice"
+    const entreprise = "entreprise"
+    const eclipse = "eclipse"
+    const sondage = "sondage"
 
     btn.addEventListener("click", () => {
-      const input = pwInput.value.trim();
+      const saisie = document.getElementById("pw").value
 
-      if (input === "mamie" || input === "exercice") {
-        window.location.href = PASSWORDS[input];
+      if (saisie === mamie) {
+        window.location.href = "http://liam.sarinoty.com/mamie/index.html";
       } 
-      else if (input === "animations") {
-        loader.style.display = "flex"; // affiche le loader
-        setTimeout(() => {
-          loader.style.display = "none"; // cache après 5s
-          window.location.href = PASSWORDS[input];
-        }, 5000);
+      else if (saisie === exercice) {
+        window.location.href = "http://liam.sarinoty.com/html/index.html";
+      } 
+      else if (saisie === entreprise) {
+        window.location.href = "http://liam.sarinoty.com/entreprise/index.html";
+      } 
+      else if (saisie === eclipse) {
+        window.location.href = "http://liam.sarinoty.com/eclipse/index.html";
+      } 
+      else if (saisie === sondage) {
+        window.location.href = "http://liam.sarinoty.com/sondage.html";
       } 
       else {
         alert("Mot de passe incorrect !");
